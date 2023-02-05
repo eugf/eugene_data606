@@ -7,3 +7,5 @@
 | WIP    |          and have substantial contents          |
 | done   |         and reside in the docs folder.          |
 
+### DESCRIPTION:
+- Collect the various written outputs for the class here
