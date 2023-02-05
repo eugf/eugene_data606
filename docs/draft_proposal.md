@@ -10,7 +10,7 @@
    - If it is geographical, 
      - what areas it cover, 
    - if it is time series, 
-     - what fime frame it covers. 
+     - what time frame it covers. 
    - What is the label you want to predict, 
    - what are the features you use to predict the label. 
 
