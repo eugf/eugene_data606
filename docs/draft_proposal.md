@@ -30,13 +30,61 @@ The total # of objects in this dataset is 780858
 
 # [1.3] \# OF COLUMNS
 
+There are 39 columns
+
 # [1.4] COLUMN NAMES + TYPES
 
-# [1.5] GEOGRAPHICAL? Y
+GHO (CODE)                         object
+GHO (DISPLAY)                      object
+GHO (URL)                          object
+PUBLISHSTATE (CODE)                object
+PUBLISHSTATE (DISPLAY)             object
+PUBLISHSTATE (URL)                float64
+YEAR (CODE)                        object
+YEAR (DISPLAY)                     object
+YEAR (URL)                        float64
+REGION (CODE)                      object
+REGION (DISPLAY)                   object
+REGION (URL)                      float64
+WORLDBANKINCOMEGROUP (CODE)        object
+STARTYEAR                          object
+ENDYEAR                            object
+WORLDBANKINCOMEGROUP (DISPLAY)     object
+WORLDBANKINCOMEGROUP (URL)        float64
+COUNTRY (CODE)                     object
+COUNTRY (DISPLAY)                  object
+COUNTRY (URL)                     float64
+AGEGROUP (CODE)                    object
+AGEGROUP (DISPLAY)                 object
+AGEGROUP (URL)                    float64
+SEX (CODE)                         object
+SEX (DISPLAY)                      object
+SEX (URL)                         float64
+GHECAUSES (CODE)                   object
+GHECAUSES (DISPLAY)                object
+GHECAUSES (URL)                   float64
+CHILDCAUSE (CODE)                  object
+CHILDCAUSE (DISPLAY)               object
+CHILDCAUSE (URL)                  float64
+Display Value                      object
+Numeric                            object
+Low                               float64
+High                              float64
+StdErr                            float64
+StdDev                            float64
+Comments                           object
 
-### Areas covered:
+In summary, the datatypes in this dataset can be broken down into 2 main types:
+1) float64(13) --> which are the numerical datatype columns
+2) object(26) --> which are strings (Python's categorical) datatype columns
 
-# [1.6] TIME SERIES? Y
+# [1.5] GEOGRAPHICAL? -Y
+
+### Areas covered: USA
+
+The dataset is filtered by country code for only the USA subset. There should be a larger dataset somewhere for global reach, but I'm not sure if there's a more specific geographical dataset that breaks down regions by state or ZIP code available from the WHO. 
+
+# [1.6] TIME SERIES? -Y
 
 ### Time frame covered:
 
