@@ -10,12 +10,12 @@
    - what the columns are and their types.
    - If it is geographical,
      - what areas it covers,
-   - if it is time series,
+   - If it is time series,
      - what time frame it covers.
    - What is the label you want to predict,
-   - what are the features you use to predict the label.
+   - What are the features you use to predict the label.
 2) What ML models you plan to use, how will you compare them and pick the best?
-3) if you deploy the ML model to a webapp, what the functions it will provide?
+3) If you deploy the ML model to a webapp, what the functions it will provide?
 4) Make sure you perform the initial EDA and have a jupyter notebook file in src with good documentations.
 
 # [1.1] DATASETS
@@ -28,9 +28,15 @@ The dataset I've chosen to look are the Health Measures for the US, which is upd
 
 The total # of objects in this dataset is 780858
 
-# [1.3] \# OF COLUMNS
+# [1.3] \# OF ROWS X COLUMNS
+
+There are 20,021 rows
+
+- 2 header rows?
 
 There are 39 columns
+
+- Many are null, or large portions are null (depending on the type of data)
 
 # [1.4] COLUMN NAMES + TYPES
 
@@ -89,7 +95,7 @@ In summary, the datatypes in this dataset can be broken down into 2 main types:
 
 ### Areas covered: USA
 
-The dataset is filtered by country code for only the USA subset. There should be a larger dataset somewhere for global reach, but I'm not sure if there's a more specific geographical dataset that breaks down regions by state or ZIP code available from the WHO.
+The dataset is filtered by country code for only the USA subset. There should be a larger datasets somewhere with global reach, but doesn't seem to be be able to download en masse, have to look for country by country or by Global Health Indicator. It doesn't seem to have finer-grained detail like states in the USA, so I may expand this and select several countries instead to augment this dataset.
 
 # [1.6] TIME SERIES? -Y
 
@@ -103,11 +109,13 @@ The dataset is filtered by country code for only the USA subset. There should be
   - 2 yrs at the shortest
   - 12 yrs at the longest
 
-But there may be some issues with the automatically assigned datatypes here... For example, there are 3 columns for "YEAR" in addition to 2 more columns for "STARTYEAR" and "ENDYEAR," making for 5 different columns representing "YEAR." The "YEAR (URL)" is 100% empty, while the others have Issues like having decimal points for a single year and the year ranges being considered as strings due to the dash symbol (-), but it's probably intended to refer to the "STARTYEAR" and "ENDYEAR" columns for those.
+But there may be some issues with the automatically assigned datatypes here...
+
+For example, there are 3 columns for "YEAR" in addition to 2 more columns for "STARTYEAR" and "ENDYEAR," making for 5 different columns representing "YEAR." The "YEAR (URL)" is 100% empty, while the others have Issues like having decimal points for a single year and the year ranges being considered as strings due to the dash symbol (-), but it's probably intended to refer to the "STARTYEAR" and "ENDYEAR" columns for those and this was a convenient way for them to merge those datasets in which probably didn't collect yearly stats.
 
 # [1.7] LABEL TO PREDICT
 
-This dataset probably isn't going to be enough for my intended predictions... I might need to augment this with some additional data like mortality data by year and maybe region if I add in more countries or get finer-grained geographical divisions, like individual states. Or just add in other countries since it is the WORLD Health Organization, the other countries should be available on their website for download.
+This dataset probably isn't going to be enough for my intended predictions... I might need to augment this with some additional data like mortality data by year and maybe region if I add in more countries
 
 I think it would be interesting to explore 2 different dimensions here:
 
@@ -116,14 +124,21 @@ I think it would be interesting to explore 2 different dimensions here:
 
 # [1.8] FEATURES USED FOR PREDICTION
 
-Under the `GHO (CODE)` and `GHO (DISPLAY)` columns they have various Global Health Indicators, mortality is included there but I think I would have to group them into major categories and reorganize the table since these are in the rows right now. The various `YEAR` columns will definitely be necessary to identify changing trends and when certain interventions, like vaccines, began. `AGEGROUP` would certainly be important. `GHECAUSES` using the major disease groups, such as, `CARDIOVASCULAR DISEASES` and `RESPIRATORY DISEASES`, which could be linked to `Ambient and household air pollution attributable death rate (per 100 000 population)` under the `GHO (DISPLAY)` column. I think I'd have to go through all 20,000 rows of this `GHO (DISPLAY)` column to figure out which ones are useful, some of them seem to be summary statistics which probably shouldn't be used as a feature for prediction.
+Under the `GHO (CODE)` and `GHO (DISPLAY)` columns they have various Global Health Indicators, mortality is included there but I think I would have to group them into major categories and reorganize the table since these are in the rows right now. I think I can turn the rows into dummy variables with one-hot encoding right? But then I'm not sure what exactly to pick. Should I even group them into things like air pollution and respiratory diseases? Or should I use every row of the GHO column as dummy variables and see what an ML algorithm can pick out?
+
+
+The various `YEAR` columns will definitely be necessary to identify changing trends and when certain interventions, like vaccines, began. `AGEGROUP` would certainly be important. `GHECAUSES` using the major disease groups, such as, `CARDIOVASCULAR DISEASES` and `RESPIRATORY DISEASES`, which could be linked to `Ambient and household air pollution attributable death rate (per 100 000 population)` under the `GHO (DISPLAY)` column. I think I'd have to go through all 20,000+ rows of this `GHO (DISPLAY)` column to figure out which ones are useful, some of them seem to be summary statistics which probably shouldn't be used at all since I'll be doing my own analysis and many of the other columns are null or only used for select rows.
 
 # [2] What ML models you plan to use, how will you compare them and pick the best?
 
-I'm not sure which would be the best to use yet, but I think multiclass classification would be the most relevant for identifiy multiple types of categorical data and their causes. But regression could work for a time-based prediction on mortality rates. I'll probably want to try both and see if they work. For comparing I would want to split some of the data and use a Confusion Matrix to rate how well it worked.
+I'm not sure which would be the best to use yet, but I think multiclass classification would be the most relevant to identifiy multiple types of categorical data and their causes. But regression could work for a time-based prediction on mortality rates. I'll probably want to try both and see if they work. For comparing I would want to randomly split the data and use a Confusion Matrix to rate how well each method worked. This will allow me to calculate the:
 
-# [3] if you deploy the ML model to a webapp, what the functions it will provide?
+- Precision
+- Recall
+- F1 score
+
+# [3] If you deploy the ML model to a webapp, what the functions it will provide?
 
 For the time-based one I would want to create predictions for going forward from our current future and see how mortality rates would change. But I also want to try to see if I can force a specific feature to 0 and predict how mortality would have changed back then if a certain feature didn't exist, like air pollution. I'd like it to be an interactive checklist to add/remove features and see the change in results.
 
-For the mortality prediction, I would want a similar checklist but instead of moving across time, I want want it to change specific features and see how it changes disease outcomes instead. Like if air pollution was 0, how would the respiratory disease category change?
+For the mortality prediction, I would want a similar checklist but instead of moving across time, I want want it to change specific features and see how it changes disease outcomes instead. Like if air pollution was 0, how would the respiratory disease mortality outcomes change?
