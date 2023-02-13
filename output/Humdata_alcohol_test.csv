@@ -1,0 +1,5 @@
+,GHO (CODE),GHO (DISPLAY),GHO (URL),PUBLISHSTATE (CODE),PUBLISHSTATE (DISPLAY),YEAR (CODE),YEAR (DISPLAY),REGION (CODE),REGION (DISPLAY),STARTYEAR,ENDYEAR,COUNTRY (CODE),COUNTRY (DISPLAY),Display Value
+,#indicator+code,#indicator+name,#indicator+url,#status+code,#status+name,Unnamed: 6_level_1,#date+year,#region+code,#region+name,#date+year+start,#date+year+end,#country+code,#country+name,Unnamed: 32_level_1
+6472,SA_0000001471,Alcohol-related road traffic crashes (% of all traffic crashes),https://www.who.int/data/gho/indicator-metadata-registry/imr-details/2335,PUBLISHED,Published,2012,2012,AMR,Americas,2012.0,2012.0,USA,United States of America,31.8
+6479,SA_0000001471,Alcohol-related road traffic crashes (% of all traffic crashes),https://www.who.int/data/gho/indicator-metadata-registry/imr-details/2335,PUBLISHED,Published,2013,2013,AMR,Americas,2013.0,2013.0,USA,United States of America,31
+6483,SA_0000001471,Alcohol-related road traffic crashes (% of all traffic crashes),https://www.who.int/data/gho/indicator-metadata-registry/imr-details/2335,PUBLISHED,Published,2008,2008,AMR,Americas,2008.0,2008.0,USA,United States of America,11.2
