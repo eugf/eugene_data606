@@ -1,6 +1,6 @@
 # INSTRUCTIONS:
 
-(EMAIL)"issue: lack of details. They are too brief and have very little substance."
+(EMAIL) "issue: lack of details. They are too brief and have very little substance."
 
 1) Please provide details on
 
