@@ -47,7 +47,7 @@ There are 12 columns
 | :------------ | :--------- | :------------------------ | :------------------------------------------------------------------------------------------------------------------------------ |
 | ID          | object   | (N/A)                   | Patient identifier                                                                                                            |
 | M/F         | object   | Demographics            | Gender: male/female                                                                                                           |
-| Hand        | object   | Demographics            | Handedness: all right-handed (remove?)                                                                                        |
+| Hand        | object   | Demographics            | Handedness: all right-handed (remove???)                                                                                      |
 | Age         | int64    | Demographics            | Age: 18 - 96                                                                                                                  |
 | Educ        | float64  | Demographics            | Education codes: 1 = less than high school grad, 2 = high school grad, 3 = some college, 4 = college grad, 5 = beyond college |
 | SES         | float64  | Demographics            | Socioeconomic status (SES)                                                                                                    |
@@ -58,7 +58,7 @@ There are 12 columns
 | ASF         | float64  | Derived anatomic values | Normalized whole brain volume (nWBV)                                                                                          |
 | Delay       | float64  | ???                     | (This may be for the longitudinal follow-up dataset, wherein patients returned <90 days later for follow-up scans)            |
 
-In summary, the column datatypes in this dataset can be broken down into 3 main types:
+In summary, the column datatypes can be broken down into 3 main types:
 
 - float64(7)  --> 7 numerical
 - int64(2)    --> 2 integer
@@ -92,4 +92,4 @@ I'll probably want to try multiple methods of classification to see if different
 
 # [3] If you deploy the ML model to a webapp, what functions will it provide?
 
-???
+I want to try using Streamlit to provide GUI based data visualizations of the dataset along with the ability to manually enter variable parameters to have it make a prediction with user supplied data
