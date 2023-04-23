@@ -26,43 +26,51 @@ The dataset I'm using is from OASIS-1. In my case I will be using the text-based
 
 # [1.2] \# OF OBJECTS
 
-The total # of objects in this dataset is ????
+The total # of objects in this dataset is: 5,232
 
 # [1.3] \# OF ROWS X COLUMNS
 
-There are 20,021 rows
+There are 436 rows
 
-- 2 header rows?
+- 1 header row
 
-There are 39 columns
+There are 12 columns
 
-- Many are null, or large portions are null (depending on the type of data)
+- Most of the `Delay` column is null
+- A few of the other columns are around half null
+- Most of the rest are non-null
 
 # [1.4] COLUMN NAMES + TYPES
 
 
 | COLUMN NAME | DATATYPE |
 | :------------ | :--------- |
-| ???         |          |
+| ID          | object   |
+| M/F         | object   |
+| Hand        | object   |
+| Age         | int64    |
+| Educ        | float64  |
+| SES         | float64  |
+| MMSE        | float64  |
+| CDR         | float64  |
+| eTIV        | int64    |
+| nWBV        | float64  |
+| ASF         | float64  |
+| Delay       | float64  |
 
-In summary, the datatypes in this dataset can be broken down into 2 main types:
+In summary, the column datatypes in this dataset can be broken down into 3 main types:
 
-1) ???
+- float64(7)  --> 7 numerical
+- int64(2)    --> 2 integer
+- object(3)   --> 3 string (categorical)
 
 # [1.5] GEOGRAPHICAL? -N
 
-### Areas covered: ???
-
+### Areas covered: (N/A)
 
 # [1.6] TIME SERIES? -N
 
-### Time frame covered: 1951 - 2025
-
-### Time units:???
-
-But there may be some issues with the automatically assigned datatypes here...
-
-For example, there are 3 columns for "YEAR" in addition to 2 more columns for "STARTYEAR" and "ENDYEAR," making for 5 different columns representing "YEAR." The "YEAR (URL)" is 100% empty, while the others have Issues like having decimal points for a single year and the year ranges being considered as strings due to the dash symbol (-), but it's probably intended to refer to the "STARTYEAR" and "ENDYEAR" columns for those and this was a convenient way for them to merge those datasets in which probably didn't collect yearly stats.
+### Time frame covered: (N/A)
 
 # [1.7] LABEL TO PREDICT
 
@@ -70,11 +78,13 @@ Demented or not demented
 
 # [1.8] FEATURES USED FOR PREDICTION
 
-Under the `GHO (CODE)` and `GHO (DISPLAY)` columns they have various Global Health Indicators, mortality is included there but I think I ???
+The rows designate patients. Healthy controls, as well as mild-to-moderate Alzheimer's Disease (AD) patients, are included for comparison. This dataset is already processed from the larger OASIS-1 data, such as joining multiple datasets and removing the MRI image data, so I will attempt to use most of the columns present here. Handedness may be able to be removed, as all patients are right-handed.
 
 # [2] What ML models you plan to use, how will you compare them and pick the best?
 
-I'm not sure which would be the best to use yet, but I think multiclass classification would be the most relevant to identifiy multiple types of categorical data and their causes. But regression could work for a time-based prediction on mortality rates. I'll probably want to try both and see if they work. For comparing I would want to randomly split the data and use a Confusion Matrix to rate how well each method worked. This will allow me to calculate the:
+I think binary classification is the most relevant ML method to use. 
+
+I'll probably want to try multiple methods of classification to see if different methods can achieve higher accuracy. For comparing I would want to randomly split the data using stratified splitting to preserve the ratio of demented to non-demented patients. Then utilize a Confusion Matrix to rate how well each method worked. This will allow me to calculate the:
 
 - Precision
 - Recall
