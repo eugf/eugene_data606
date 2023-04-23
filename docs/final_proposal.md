@@ -40,23 +40,23 @@ There are 12 columns
 - A few of the other columns are around half null
 - Most of the rest are non-null
 
-# [1.4] COLUMN NAMES + TYPES
+# [1.4] COLUMN NAMES + TYPES + METADATA/DATA DICTIONARY
 
 
-| COLUMN NAME | DATATYPE |
-| :------------ | :--------- |
-| ID          | object   |
-| M/F         | object   |
-| Hand        | object   |
-| Age         | int64    |
-| Educ        | float64  |
-| SES         | float64  |
-| MMSE        | float64  |
-| CDR         | float64  |
-| eTIV        | int64    |
-| nWBV        | float64  |
-| ASF         | float64  |
-| Delay       | float64  |
+| COLUMN NAME | DATATYPE | CATEGORY                | DESCRIPTION                                                                                                                   |
+| :------------ | :--------- | :------------------------ | :------------------------------------------------------------------------------------------------------------------------------ |
+| ID          | object   | (N/A)                   | Patient identifier                                                                                                            |
+| M/F         | object   | Demographics            | Gender: male/female                                                                                                           |
+| Hand        | object   | Demographics            | Handedness: all right-handed (remove?)                                                                                        |
+| Age         | int64    | Demographics            | Age: 18 - 96                                                                                                                  |
+| Educ        | float64  | Demographics            | Education codes: 1 = less than high school grad, 2 = high school grad, 3 = some college, 4 = college grad, 5 = beyond college |
+| SES         | float64  | Demographics            | Socioeconomic status (SES)                                                                                                    |
+| MMSE        | float64  | Clinical                | Mini-Mental State Examination (MMSE)                                                                                          |
+| CDR         | float64  | Clinical                | Clinical Dementia Rating (CDR): 0 = nondemented, 0.5 = very mild dementia, 1 = mild dementia, 2 = moderate dementia           |
+| eTIV        | int64    | Derived anatomic values | Estimated total intracranial volume (eTIV) (mm^3)                                                                             |
+| nWBV        | float64  | Derived anatomic values | Atlas scaling factor (ASF)                                                                                                    |
+| ASF         | float64  | Derived anatomic values | Normalized whole brain volume (nWBV)                                                                                          |
+| Delay       | float64  | ???                     | (This may be for the longitudinal follow-up dataset, wherein patients returned <90 days later for follow-up scans)            |
 
 In summary, the column datatypes in this dataset can be broken down into 3 main types:
 
@@ -82,7 +82,7 @@ The rows designate patients. Healthy controls, as well as mild-to-moderate Alzhe
 
 # [2] What ML models you plan to use, how will you compare them and pick the best?
 
-I think binary classification is the most relevant ML method to use. 
+I think binary classification is the most relevant ML method to use.
 
 I'll probably want to try multiple methods of classification to see if different methods can achieve higher accuracy. For comparing I would want to randomly split the data using stratified splitting to preserve the ratio of demented to non-demented patients. Then utilize a Confusion Matrix to rate how well each method worked. This will allow me to calculate the:
 
