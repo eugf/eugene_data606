@@ -5,9 +5,9 @@
 
 | STATUS | DESCRIPTION                                             |
 | :----- | :------------------------------------------------------ |
-|        | The draft proposal is named "draft_proposal.md"         |
-|        | which must be formatted using Markdown                  |
-|        | and have substantial contents                           |
-|        | and reside in the docs folder.                          |
-|        | Develop your proposal a bit more                        |
-|        | Copy draft_proposal.md to final_proposal.md, edit there |
+| done   | The draft proposal is named "draft_proposal.md"         |
+| done   | which must be formatted using Markdown                  |
+| done   | and have substantial contents                           |
+| done   | and reside in the docs folder.                          |
+| done   | Develop your proposal a bit more                        |
+| done   | Copy draft_proposal.md to final_proposal.md, edit there |
