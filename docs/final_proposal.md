@@ -70,15 +70,17 @@ In summary, the column datatypes can be broken down into 3 main types:
 
 # [1.6] TIME SERIES? -N
 
+The cross-sectional data is a single slice of time, one observation only. 
+
 ### Time frame covered: (N/A)
 
 # [1.7] LABEL TO PREDICT
 
-Demented or not demented
+Demented or not demented as denoted by the `CDR` column which is the Clinical Dementia Rating. This could be grouped into just 2 groups for binary classification or potentially used to try to predict the severity of dementia, although this may be much harder and not have enough samples to get good accuracy.
 
 # [1.8] FEATURES USED FOR PREDICTION
 
-The rows designate patients. Healthy controls, as well as mild-to-moderate Alzheimer's Disease (AD) patients, are included for comparison. This dataset is already processed from the larger OASIS-1 data, such as joining multiple datasets and removing the MRI image data, so I will attempt to use most of the columns present here. Handedness may be able to be removed, as all patients are right-handed.
+The rows designate patients. Healthy controls, as well as mild-to-moderate Alzheimer's Disease (AD) patients, are included for comparison. This dataset is already processed from the larger OASIS-1 data, such as joining multiple datasets and removing the MRI image data, so I will attempt to use most of the columns present here. `Hand` may be able to be removed, as all patients are right-handed. The `Delay` column might be able to be removed as well, it's more relevant for the longitudinal study as it indicates days after the initial visit that they returned for a follow-up.
 
 # [2] What ML models you plan to use, how will you compare them and pick the best?
 
