@@ -70,7 +70,7 @@ In summary, the column datatypes can be broken down into 3 main types:
 
 # [1.6] TIME SERIES? -N
 
-The cross-sectional data is a single slice of time, one observation only. 
+The cross-sectional data is a single slice of time, one observation only.
 
 ### Time frame covered: (N/A)
 
