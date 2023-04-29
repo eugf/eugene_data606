@@ -54,8 +54,8 @@ There are 12 columns
 | MMSE        | float64  | Clinical                | Mini-Mental State Examination (MMSE)                                                                                          |
 | CDR         | float64  | Clinical                | Clinical Dementia Rating (CDR): 0 = nondemented, 0.5 = very mild dementia, 1 = mild dementia, 2 = moderate dementia           |
 | eTIV        | int64    | Derived anatomic values | Estimated total intracranial volume (eTIV) (mm^3)                                                                             |
-| nWBV        | float64  | Derived anatomic values | Atlas scaling factor (ASF)                                                                                                    |
-| ASF         | float64  | Derived anatomic values | Normalized whole brain volume (nWBV)                                                                                          |
+| nWBV        | float64  | Derived anatomic values | Normalized whole brain volume (nWBV)                                                                                          |
+| ASF         | float64  | Derived anatomic values | Atlas scaling factor (ASF)                                                                                                    |
 | Delay       | float64  | ???                     | (This may be for the longitudinal follow-up dataset, wherein patients returned <90 days later for follow-up scans)            |
 
 In summary, the column datatypes can be broken down into 3 main types:
