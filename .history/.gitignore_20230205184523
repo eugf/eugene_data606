@@ -128,5 +128,3 @@ dmypy.json
 # Pyre type checker
 .pyre/
 docs/Future_steps.txt
-src/ML-corrupted.ipynb
-src/ML copy.ipynb
