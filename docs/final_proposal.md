@@ -51,7 +51,7 @@ There are 12 columns
 | Age         | int64    | Demographics            | Age: 18 - 96                                                                                                                  |
 | Educ        | float64  | Demographics            | Education codes: 1 = less than high school grad, 2 = high school grad, 3 = some college, 4 = college grad, 5 = beyond college |
 | SES         | float64  | Demographics            | Socioeconomic status (SES)                                                                                                    |
-| MMSE        | float64  | Clinical                | Mini-Mental State Examination (MMSE)                                                                                          |
+| MMSE        | float64  | Clinical                | [Mini-Mental State Examination (MMSE)](https://pubmed.ncbi.nlm.nih.gov/34313331/)                                             |
 | CDR         | float64  | Clinical                | Clinical Dementia Rating (CDR): 0 = nondemented, 0.5 = very mild dementia, 1 = mild dementia, 2 = moderate dementia           |
 | eTIV        | int64    | Derived anatomic values | Estimated total intracranial volume (eTIV) (mm^3)                                                                             |
 | nWBV        | float64  | Derived anatomic values | Normalized whole brain volume (nWBV)                                                                                          |
