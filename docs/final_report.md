@@ -263,20 +263,20 @@ Folstein, M. F., Folstein, S. E., & McHugh, P. R. (1975). “Mini-mental state.�
 
 Lecanemab, the New Alzheimer’s Treatment: 3 Things To Know. (n.d.). Yale Medicine. Retrieved May 11, 2023, from [https://www.yalemedicine.org/news/lecanemab-leqembi-new-alzheimers-drug](https://www.yalemedicine.org/news/lecanemab-leqembi-new-alzheimers-drug)
 
-Marcus, D. S., Wang, T. H., Parker, J., Csernansky, J. G., Morris, J. C., & Buckner, R. L. (2007). Open Access Series of Imaging Studies (OASIS): Cross-sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults. Journal of Cognitive Neuroscience, 19(9), 1498–1507. https://doi.org/10.1162/jocn.2007.19.9.1498
+Marcus, D. S., Wang, T. H., Parker, J., Csernansky, J. G., Morris, J. C., & Buckner, R. L. (2007). Open Access Series of Imaging Studies (OASIS): Cross-sectional MRI Data in Young, Middle Aged, Nondemented, and Demented Older Adults. Journal of Cognitive Neuroscience, 19(9), 1498–1507. [https://doi.org/10.1162/jocn.2007.19.9.1498](https://doi.org/10.1162/jocn.2007.19.9.1498)
 
-Mini-Mental State Exam (MMSE) Test for Alzheimer’s / Dementia. (n.d.). Retrieved May 11, 2023, from https://www.dementiacarecentral.com/mini-mental-state-exam/
+Mini-Mental State Exam (MMSE) Test for Alzheimer’s / Dementia. (n.d.). Retrieved May 11, 2023, from [https://www.dementiacarecentral.com/mini-mental-state-exam/](https://www.dementiacarecentral.com/mini-mental-state-exam/)
 
-Morris, J. C. (1993). The Clinical Dementia Rating (CDR): Current version and scoring rules. Neurology, 43(11), 2412.1-2412. https://doi.org/10.1212/WNL.43.11.2412
+Morris, J. C. (1993). The Clinical Dementia Rating (CDR): Current version and scoring rules. Neurology, 43(11), 2412.1-2412. [https://doi.org/10.1212/WNL.43.11.2412](https://doi.org/10.1212/WNL.43.11.2412)
 
-Potential fabrication in research images threatens key theory of Alzheimer’s disease. (n.d.). Retrieved May 11, 2023, from https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease
+Potential fabrication in research images threatens key theory of Alzheimer’s disease. (n.d.). Retrieved May 11, 2023, from [https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease](https://www.science.org/content/article/potential-fabrication-research-images-threatens-key-theory-alzheimers-disease)
 
-R, G. S. (2022, October 21). Confusion Matrix to no Confusion Matrix in just 5mins. Medium. https://pub.towardsai.net/confusion-matrix-179b9c758b55
+R, G. S. (2022, October 21). Confusion Matrix to no Confusion Matrix in just 5mins. Medium. [https://pub.towardsai.net/confusion-matrix-179b9c758b55](https://pub.towardsai.net/confusion-matrix-179b9c758b55)
 
-Reardon, S. (2023). Alzheimer’s drug donanemab: What promising trial means for treatments. Nature, 617(7960), 232–233. https://doi.org/10.1038/d41586-023-01537-5
+Reardon, S. (2023). Alzheimer’s drug donanemab: What promising trial means for treatments. Nature, 617(7960), 232–233. [https://doi.org/10.1038/d41586-023-01537-5](https://doi.org/10.1038/d41586-023-01537-5)
 
-Rubin, E. H., Storandt, M., Miller, J. P., Kinscherf, D. A., Grant, E. A., Morris, J. C., & Berg, L. (1998). A Prospective Study of Cognitive Function and Onset of Dementia in Cognitively Healthy Elders. Archives of Neurology, 55(3), 395. https://doi.org/10.1001/archneur.55.3.395
+Rubin, E. H., Storandt, M., Miller, J. P., Kinscherf, D. A., Grant, E. A., Morris, J. C., & Berg, L. (1998). A Prospective Study of Cognitive Function and Onset of Dementia in Cognitively Healthy Elders. Archives of Neurology, 55(3), 395. [https://doi.org/10.1001/archneur.55.3.395](https://doi.org/10.1001/archneur.55.3.395)
 
-Taking the Confusion Out of Confusion Matrices | by Allison Ragan | Towards Data Science. (n.d.). Retrieved May 14, 2023, from https://towardsdatascience.com/taking-the-confusion-out-of-confusion-matrices-c1ce054b3d3e
+Taking the Confusion Out of Confusion Matrices | by Allison Ragan | Towards Data Science. (n.d.). Retrieved May 14, 2023, from [https://towardsdatascience.com/taking-the-confusion-out-of-confusion-matrices-c1ce054b3d3e](https://towardsdatascience.com/taking-the-confusion-out-of-confusion-matrices-c1ce054b3d3e)
 
-Woloshin, S., & Kesselheim, A. S. (2022). What to Know About the Alzheimer Drug Aducanumab (Aduhelm). JAMA Internal Medicine, 182(8), 892. https://doi.org/10.1001/jamainternmed.2022.1039
+Woloshin, S., & Kesselheim, A. S. (2022). What to Know About the Alzheimer Drug Aducanumab (Aduhelm). JAMA Internal Medicine, 182(8), 892. [https://doi.org/10.1001/jamainternmed.2022.1039](https://doi.org/10.1001/jamainternmed.2022.1039)
