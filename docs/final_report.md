@@ -8,6 +8,8 @@
 
 ### DATA 606 @UMBC
 
+---
+
 # OVERVIEW
 
 ### PHASE 1 – Proposal & Planning
@@ -36,13 +38,15 @@
 
 ###### - Future directions
 
+---
+
 # PHASE 1 – Proposal & Planning
 
-##### Literature search: Alzheimer’s disease (AD)
+### Literature search: Alzheimer’s disease (AD)
 
 ![](assets/20230514_162814_image.png)
 
-Figure comparing the changes between healthy brains to Alzheimer’s disease brains (Breijyeh & Karaman, 2020)
+Figure comparing the changes between healthy brains to Alzheimer’s disease brains (Breijyeh & Karaman, 2020).
 
 Alzheimer’s disease (AD) is a progressive neurodegenerative disease which causes a decline in cognitive functions until death. It is the main cause of dementia and is rapidly increasing worldwide, roughly doubling every 5 years. The direct cause  is still an issue of hot debate, but the literature has many risk factors listed such as: “increasing age, genetic factors, head injuries, vascular diseases, infections, and environmental factors” (Breijyeh & Karaman, 2020). From a clinical standpoint, AD patients exhibit “memory loss… change of personality… progressive loss of cognitive functions” (Breijyeh & Karaman, 2020). From a biomolecular examination, autopsies have revealed neuritic plaques and neurofibrillary tangles, which are predicted to be caused by amyloid-beta (AB) plaques interfering with acetylcholine (ACh), its receptors, and/or production in the nucleus basalis of Meynart (NBM) in the basal forebrain (Breijyeh & Karaman, 2020). However, whether AB plaques are truly the root cause of Alzheimer’s is now under scrutiny after neuroscientist and physician, Matthew Schrag, reexamined the initial research identifying AB plaques as the root cause by Sylvain Lesne. Some of the results from Lesne’s 2006 papers may have been manipulated (Potential Fabrication in Research Images Threatens Key Theory of Alzheimer’s Disease, n.d.). Prior to 2021, the AD drugs available could only address some of the individual symptoms of AD, with no effect on the final outcome of the disease (Breijyeh & Karaman, 2020). Beginning in 2021, the FDA approved 3 new AD drugs: Aducanumab in 2021, Lecanemab and Donanemeb in 2023 – all with their own fair share of controversy:
 
@@ -52,7 +56,7 @@ Alzheimer’s disease (AD) is a progressive neurodegenerative disease which caus
 
 These 3 new drugs target AB plaques, but none of them can reverse or stop Alzheimer’s completely, which may be an indication that AB plaques may not be the root cause of Alzheimer’s and that as a result of fabricated research results, researchers have been pursuing the wrong target.
 
-###### Diagnosing Alzheimer’s is hard!
+### Diagnosing Alzheimer’s is hard!
 
 ![](assets/20230514_163453_image.png)
 
@@ -66,11 +70,11 @@ Recently, there have been attempts to diagnose AD with the help of automated met
 
 Summary of all methods and their respective evaluation metrics from my literature review.
 
-###### OASIS dataset
+### OASIS dataset
 
 ![](assets/20230514_165038_image.png)
 
-(Marcus et al., 2007)
+(Marcus et al., 2007).
 
 The Open Access Series of Imaging Studies (OASIS) research group “is … aimed at making neuroimaging data sets of the brain freely available to the scientific community” (Marcus et al., 2007). Since 2007, OASIS has been publicly releasing their collection of Alzheimer’s brain scans along with patient biomarkers to encourage open development of improved AD diagnosis and research (Marcus et al., 2007). There are currently 4 OASIS datasets. published from 2007 – 2020, utilizing several different brain scanning techniques, such as: CT, MRI, PET, and looking at different patient cohorts like healthy non-demented controls VS dementia in various stages, as well as longitudinal studies where patients return for follow-up VS cross-sectional studies with just one observation of each patient (Marcus et al., 2007).
 
@@ -97,9 +101,9 @@ The Education levels were further subdivided into discrete numerical labels wher
 
 CDR criteria for ranking AD severity (Morris, 1993).
 
-### PHASE 2 – Data prep, EDA, & Data Viz
+# PHASE 2 – Data prep, EDA, & Data Viz
 
-###### Stats & Data viz
+### Stats & Data viz
 
 Initial inspection of the dataset columns shows that its shape is 436 rows by 12 columns. There are 416 patients, with 20 who returned after a delay for follow-up, which adds up nicely to the 436 rows. Most of the column data types are numerical: 7 floats and 2 integers. 3 of the columns are categorical. Checking for null values, most of them have values, but almost all of delay is null, which is expected since only 20 patients returned for follow-up. A concerning number of rows in Educ, SES, MMSE, and CDR are null as well. If I look at the unique values instead, I can see that the ID column is 100% unique, while the Hand and M/F columns have 1 and 2 unique values respectively.
 
@@ -149,7 +153,7 @@ A Pearson Correlation heatmap plot shows that MMSE, CDR, Age, and nWBV are the t
 
 ![](assets/20230514_170250_image.png)
 
-###### Data cleansing & transformation
+### Data cleansing & transformation
 
 After EDA, I decided that the `ID` column can be removed as its 100% unique and not valuable for differentiating diagnoses, I can just rely on the built-in index to reference rows. The `M/F` column can be renamed `Gender` and converted into dummy variables as needed for ML ingestion. The `Hand` column only has 1 unique value because all subjects are right-handed. This was probably useful in selecting patients at the outset of the study to guarantee all are right-handed to remove brain differences from left-handed persons but is no longer of value for an ML algorithm since all values are the same so this can be removed. The `CDR` column can be regrouped based upon the bins for nondemented (0) and any level of dementia (any value > 0) for a binary classification task. The `Delay` column can be removed since I don’t want repeat patients or the longitudinal data. There are around half the rows which are missing data, including the CDR column, which is my target column. I decided to drop any row missing a CDR value since that should not be imputed as they are official medical diagnoses. Finally, I want to rename all the columns into their full names instead of medical abbreviations which will be easier to understand for anyone viewing my data, without needing a comprehensive background in neuroscience.
 
@@ -164,9 +168,9 @@ The renamed columns are as follows:
 - 'nWBV'   : 'Normalized whole brain volume',
 - 'ASF'    : 'Atlas scaling factor'
 
-### PHASE 3 – Model training & Deployment
+# PHASE 3 – Model training & Deployment
 
-###### Stratified train/test split
+### Stratified train/test split
 
 In preparation for ML, I split my dataset into a data partition named X, comprised of all columns except the CDR column, which is going to become my target data partition named y. This results in an X dataset of 235 rows x 8 columns and a y dataset of 235 rows x 1 column. I decided to apply stratified train/test split because I wanted to maintain the same ratio of healthy, nondemented patients to demented AD patients in the resulting train/test partitions. This results in 4 subsets: X_test, X_train, y_test, y_train. I’ve decided to reserve 20% of the data for testing purposes, resulting in training subsets of 188 rows and testing subsets of 47 rows.
 
@@ -177,11 +181,11 @@ In preparation for ML, I split my dataset into a data partition named X, compris
 
 After the train/test split is when I impute missing data on each individual dataset to prevent any leakage. The histograms from the EDA phase showed that many of the variables were non-normal distributions, even when they were continuous numerical values. However, several of them were also discrete numerical values, meaning they were binned into groups and the numbers were for multi-labelling of different subcategories, such as: CDR, education levels, and SES. This calls for choosing `median` as the imputing strategy.
 
-###### Model training
+### Model training
 
 The goal for my ML task is to solve a binary classification problem: demented or nondemented? Using the CDR column as the target with my newly subdivided groups, I want to see how accurately AD can be predicted. My initial guess was that this should be easily solvable via Logistic Regression since that’s usually intended for yes/no binary values. But I didn’t want to limit it to just one guess without evidence. So, I decided to include more models that are capable of binary classification: Decision Trees, K-Nearest Neighbors (KNN), Naïve Bayes, Random Forest, and Support Vector Machines (SVM). After running all models on the same training/testing data, I can compare the model results against other models using a Confusion Matrix to see how well each performed.
 
-###### Prediction evaluation
+### Prediction evaluation
 
 Throughout the medical literature, I saw that there were many differing methods used to gauge the accuracy of clinician or ML diagnostic methods. Each has its own strengths and limitations. For example, the earliest method, the MMSE test, is supposed to be for patients who already have mild cognitive impairment (MCI), thus, eliminating a possible source of false positives from healthy controls. Often medical literature only considered sensitivity and specificity for their evaluation metrics.
 
@@ -191,7 +195,7 @@ The Confusion Matrix (CM) relies upon taking all the predicted values and compar
 
 ![](assets/20230514_175410_image.png)
 
-(Taking the Confusion Out of Confusion Matrices | by Allison Ragan | Towards Data Science, n.d.)
+(Taking the Confusion Out of Confusion Matrices | by Allison Ragan | Towards Data Science, n.d.).
 
 Defining variables:
 
@@ -211,7 +215,7 @@ Formulas:
 | Specificity          | True negatives/ all actual negatives        | TN / (TN + FP)                                |
 | F1                   | Harmonic mean between precision and  recall | 2 * precision * recall / (precision * recall) |
 
-(R, 2022; *Taking the Confusion Out of Confusion Matrices | by Allison Ragan | Towards Data Science* , n.d.)
+(R, 2022; *Taking the Confusion Out of Confusion Matrices | by Allison Ragan | Towards Data Science* , n.d.).
 
 Results:
 
@@ -227,7 +231,7 @@ Results:
 
 ![](assets/20230514_180058_image.png)
 
-###### Conclusion
+### Conclusion
 
 The top models varied per run, but it looked like the top performers mostly shuffled their positions and the trend remains that SVM and Logistic Regression generally performed at or near the top of most trials when looking at the accuracy statistic. However, if we were to sort by Precision or F1, then the top models would differ.
 
@@ -235,7 +239,7 @@ It’s hard to give an exact single model recommendation for which is best in al
 
 Although, it should be noted that the top human doctors still outperform all the models I tested here. ML diagnostics would not be for replacing human doctors, but instead, could be a helpful objective second set of eyes assisting doctors. Confidence scores in the ML diagnostics, as well as feature importance for why a certain prediction was made, could be added which would be helpful in confirming a doctor’s prediction or convincing them to reevaluate a patient who was misdiagnosed. This could also be helpful in guiding future research whose results could be added to existing tests and reevaluated to see the change in improvement of diagnostic accuracy.
 
-###### Future directions
+### Future directions
 
 I should take a moment to point out possible sources of errors: randomization of my data during stratified splitting resulted in different top algorithm results by the end. Although I attempted to set a pseudo-random seed, somewhere it was still randomizing it and I could not identify where. As a result, I can’t say definitively that SVM and Logistic Regression methods are always the top performing models. Additionally, I applied the Standard Scaler from scikit-learn, but this may not have been the best way to scale my data. Looking at the literature and my EDA histograms, I believe that the anatomically derived values of ASF, eTIV, and nWBV may have already been normalized in the process of deriving these values from the brain scans. Furthermore, the columns can be divided into continuous numerical values VS discrete numerical values (where the numbers were binning subgroups of the column together). Perhaps I should be scaling each of these groups differently.
 
@@ -243,7 +247,7 @@ An additional change I think could be applied to my current dataset that would b
 
 Other directions would require more data than what I currently have. The OASIS-1 Cross-sectional dataset I used was 1 of 4 OASIS datasets. The other part of OASIS-1 was for Longitudinal data and patients who came back for follow-up brain scans. The literature pointed out that MMSE was not particularly accurate when used alone, but suggested that in combination with other diagnostic methods or long-term MMSE testing, it could better detect AD or the turning point when a patient suddenly begins an accelerated cognitive decline into AD (Arevalo-Rodriguez et al., 2021). This should be much more evident in a Longitudinal study. I also had not used any of the MRI brain scan images in my analysis. These could be helpful for a Computer Vision (CV) based approach or one which combines the CSV textual data along with CV image analysis. Of course, the best future approach would probably be just to get more data of any kind. The OASIS datasets are intended to be used separately except for one set which is explicitly stated to be able to be combined with any other dataset. But all 4 of the OASIS datasets right now include only a few hundred patients each. My EDA histograms also revealed that there were 0 patients in the dataset who had made it to the last stages of AD severity. I think collecting more data from each stage of AD, as well as the many different subtype combinations of AD, would be the biggest challenge in the field. As it stands, the same issues of not enough training data to improve accuracy or get good accuracy with multi-class classification algorithms would probably hamper efforts with these datasets as well.
 
-##### References
+### References
 
 Arevalo-Rodriguez, I., Smailagic, N., Roqué-Figuls, M., Ciapponi, A., Sanchez-Perez, E., Giannakou, A., Pedraza, O. L., Bonfill Cosp, X., & Cullum, S. (2021). Mini-Mental State Examination (MMSE) for the early detection of dementia in people with mild cognitive impairment (MCI). Cochrane Database of Systematic Reviews, 2021(7). [https://doi.org/10.1002/14651858.CD010783.pub3](https://doi.org/10.1002/14651858.CD010783.pub3)
 
