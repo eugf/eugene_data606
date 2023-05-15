@@ -38,6 +38,10 @@
 
 ###### - Future directions
 
+##### - Links
+
+##### - References
+
 ---
 
 # PHASE 1 – Proposal & Planning
@@ -246,6 +250,14 @@ I should take a moment to point out possible sources of errors: randomization of
 An additional change I think could be applied to my current dataset that would be helpful for refining my model would be hypertuning. If I take the top models and hypertune through scikit-learn’s `GridSearchCV` method, it should be able to optimize the ML parameters for each model and slightly improve the scores. I think it may also be possible to try multi-class classification algorithms instead, with the focus being on the severity and stage of AD progression. Instead of grouping the CDR column into demented VS non-demented patients, I could leave the original labels and attempt to predict those labels. However, the data gets much sparser the further advanced the patient’s AD is. My worry is that there will not be enough data to train on and that the prediction evaluations would take massive hits to performance as a result. Although, it should probably have high confidence in declaring patients in the nondemented category instead since they already make up the majority of the dataset. One of the ML research groups used `Adaboost` and got much more favorable results with it than most of the models I had used. `Adaboost` supposedly works well with sparse data, which could be something I can try. I’d also like to try converting this into an interactive web app using Streamlit.
 
 Other directions would require more data than what I currently have. The OASIS-1 Cross-sectional dataset I used was 1 of 4 OASIS datasets. The other part of OASIS-1 was for Longitudinal data and patients who came back for follow-up brain scans. The literature pointed out that MMSE was not particularly accurate when used alone, but suggested that in combination with other diagnostic methods or long-term MMSE testing, it could better detect AD or the turning point when a patient suddenly begins an accelerated cognitive decline into AD (Arevalo-Rodriguez et al., 2021). This should be much more evident in a Longitudinal study. I also had not used any of the MRI brain scan images in my analysis. These could be helpful for a Computer Vision (CV) based approach or one which combines the CSV textual data along with CV image analysis. Of course, the best future approach would probably be just to get more data of any kind. The OASIS datasets are intended to be used separately except for one set which is explicitly stated to be able to be combined with any other dataset. But all 4 of the OASIS datasets right now include only a few hundred patients each. My EDA histograms also revealed that there were 0 patients in the dataset who had made it to the last stages of AD severity. I think collecting more data from each stage of AD, as well as the many different subtype combinations of AD, would be the biggest challenge in the field. As it stands, the same issues of not enough training data to improve accuracy or get good accuracy with multi-class classification algorithms would probably hamper efforts with these datasets as well.
+
+### Links
+
+[Github](https://github.com/DATA-606-SPRING-2023-TUE/eugene_data606/tree/main)
+
+[PowerPoint presentation](https://github.com/DATA-606-SPRING-2023-TUE/eugene_data606/blob/main/docs/capstone.pptm)
+
+[Youtube video](https://www.youtube.com/watch?v=BWAgNX85z8A)
 
 ### References
 
