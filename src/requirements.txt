@@ -172,7 +172,7 @@ torchvision==0.13.1
 tornado @ file:///C:/ci/tornado_1606942392901/work
 tqdm==4.62.3
 traitlets @ file:///tmp/build/80754af9/traitlets_1632522747050/work
-transformers==3.0.0
+transformers==4.30.0
 trio==0.21.0
 trio-websocket==0.9.2
 tweepy==4.10.0
