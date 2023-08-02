@@ -23,7 +23,7 @@ cffi @ file:///C:/ci/cffi_1625831749120/work
 charset-normalizer==2.0.7
 click==8.0.3
 colorama @ file:///tmp/build/80754af9/colorama_1607707115595/work
-cryptography==37.0.4
+cryptography==41.0.3
 cycler==0.11.0
 DateTime==4.3
 debugpy @ file:///C:/ci/debugpy_1629222854708/work
